@@ -7,11 +7,11 @@ import numpy.linalg
 from matplotlib.widgets import CheckButtons
 
 
-def rotz(rotzg):
+def rotz(rotzg):  # Calculation of rotation
     return [[cos(rotzg), -sin(rotzg), 0], [sin(rotzg), cos(rotzg), 0], [0, 0, 1]]
 
 
-def get_orbit_n(r, sol1):  # Подсчет орбитальной нормы
+def get_orbit_n(r, sol1):  # Calculation of orbital norm
     phi = 90 * pi / 180
     p1 = -r[1] / r[0]
     p2 = -cos(phi) * r[2] / r[0]
@@ -36,7 +36,7 @@ def get_orbit_n(r, sol1):  # Подсчет орбитальной нормы
         return n2
 
 
-def odefun(x, t):  # Диффур, для которого найдем решение
+def odefun(x, t):  # a differential equation for which we will find a solution
     return np.concatenate([x[3:6], (-G * M * x[:3]) / ((numpy.linalg.norm(x[:3])) ** 3)])
 
 
