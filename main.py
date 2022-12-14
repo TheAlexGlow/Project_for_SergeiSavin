@@ -50,7 +50,7 @@ M = 5.972 * 10 ** 24
 height = float(input('Height of satellite, m: '))
 satellite_velocity = float(input('Start velocity of satellite, m/s: '))
 time = 90 * 60
-am = float(input('Amount of rotation: '))
+am = float(input('Amount of moments of the time: '))
 mass = 420000
 
 # Calculation
@@ -106,7 +106,7 @@ ax.plot(0, 0, height + R, 'o', linewidth=2)
 ax.plot3D(trajectory_corr1[:], trajectory_corr2[:], trajectory_corr3[:], linewidth=2)
 
 ea = PIL.Image.open('earthicefree.jpg')
-ea = np.array(ea.resize([int(d / 5) for d in ea.size])) / 256.
+ea = np.array(ea.resize([int(d / 3) for d in ea.size])) / 256.
 lons = np.linspace(-180, 180, ea.shape[1]) * np.pi / 180
 lats = np.linspace(-90, 90, ea.shape[0])[::-1] * np.pi / 180
 scale = 0.8
